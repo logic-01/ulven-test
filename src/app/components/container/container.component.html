@@ -1,0 +1,17 @@
+<div class="container">
+    <a class="tab"
+       [ngClass]="displayFirst===true ? 'actived': ''"
+       (click)="toggleDisplayTo(1)">SCREEN 1</a>
+    <a class="tab"
+       [ngClass]="displayFirst===false ? 'actived': ''"
+       (click)="toggleDisplayTo(2)">SCREEN 2</a>
+</div>
+
+<div class="contents">
+    <ng-container *ngIf="displayFirst">
+        <ng-content select="app-first"></ng-content>
+    </ng-container>
+    <ng-container *ngIf="!displayFirst">
+        <ng-content select="app-second"></ng-content>
+    </ng-container>
+</div>

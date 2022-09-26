@@ -1,0 +1,14 @@
+<form [formGroup]="form">
+    <input type="text"
+           class="inline look"
+           formControlName="heading"
+           placeholder="Heading...">
+           
+    <small>{{headingContentLength$ | async}}/30</small>
+    
+
+    <textarea cols="30" rows="10" class="inline look" formControlName="description" placeholder="Description..."></textarea>
+    <small>{{descriptionContentLength$ | async}}/50</small>
+
+    <button type="submit" class="inline" [disabled]="form.invalid">Submit</button>
+</form>

@@ -1,0 +1,25 @@
+<div class="container">
+    <input type="text"
+           placeholder="Enter URL..."
+           [(ngModel)]="searchValue">
+    <button (click)="onLoad()" [disabled]="!searchValue">Submit</button>
+
+
+    <ng-container *ngIf="wordList$ | async as wordList">
+        <table>
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th># of Occurance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let wordRow of wordList">
+                    <td>{{wordRow.word}}</td>
+                    <td>{{wordRow.occurances}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+
+</div>
